@@ -30,7 +30,7 @@ Automatically fill a [lancache](https://github.com/zeropingheroes/lancache) with
 # Running with Docker
 1. `mkdir -p data/tmp`
 2. `touch data/database.sqlite`
-3. `docker run -name "lancache-autofill" -itd -v "$(pwd)"/data/tmp:/tmp/lancache-autofill -v "$(pwd)"/data/database.sqlite:/app/database.sqlite -e STEAM_API_KEY=<XYZ> lancache-autofill:latest`
+3. `docker run --name "lancache-autofill" -itd -v "$(pwd)"/data/tmp:/tmp/lancache-autofill -v "$(pwd)"/data/database.sqlite:/app/database.sqlite -e STEAM_API_KEY=<XYZ> lancache-autofill:latest`
 
 The container is now running. To interact with it you should attach to the container: `docker attach lancache-autofill`
 
