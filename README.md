@@ -25,6 +25,16 @@ Automatically fill a [lancache](https://github.com/zeropingheroes/lancache) with
 * Ubuntu 18.04 x64, configured to download via the lancache
 * Sufficient disk space to (temporarily) store the downloaded content
 * Dependencies detailed in *Installation* section
+* OR a working container environment such as Docker
+
+# Running with Docker
+1. `mkdir -p data/tmp`
+2. `touch data/database.sqlite`
+3. `docker run -name "lancache-autofill" -itd -v "$(pwd)"/data/tmp:/tmp/lancache-autofill -v "$(pwd)"/data/database.sqlite:/app/database.sqlite -e STEAM_API_KEY=<XYZ> lancache-autofill:latest`
+
+The container is now running. To interact with it you should attach to the container: `docker attach lancache-autofill`
+
+Use CTRL+P then CTRL+Q to detach from the container.
 
 # Installation
 1. `git clone https://github.com/zeropingheroes/lancache-autofill.git && cd lancache-autofill`

@@ -2,7 +2,7 @@
 
 cd /app
 touch .env
-./lancache-autofill app:initialise-database
-./lancache-autofill app:initialise-downloads-directory
+[ -s /app/database.sqlite ] || ./lancache-autofill app:initialise-database
+#./lancache-autofill app:initialise-downloads-directory
 
-tail -f /dev/null
+exec "$@"
