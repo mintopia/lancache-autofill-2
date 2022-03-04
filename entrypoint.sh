@@ -2,7 +2,12 @@
 
 cd /app
 touch .env
-[ -s /app/database.sqlite ] || ./lancache-autofill app:initialise-database
-#./lancache-autofill app:initialise-downloads-directory
+
+if [[ ! -f $DATABASE_FILE ]]
+then
+  echo "Initialising database"
+  touch $DATABASE_FILE
+  ./lancache-autofill app:initialise-database
+fi
 
 exec "$@"

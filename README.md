@@ -36,6 +36,27 @@ The container is now running. To interact with it you should attach to the conta
 
 Use CTRL+P then CTRL+Q to detach from the container.
 
+# Running with Docker Compose
+
+An easier alternative to using the Docker container is to use docker-compose. To do this, you need to:
+
+1. Copy `.env.docker-compose.example` to `.env`
+2. Put your Steam API Key into the `.env` file
+3. Run `docker-compose up -d`
+
+The downloader is now running in the background waiting for games to download. You can check its status using:
+
+```bash
+docker-compose logs -f downloader
+```
+
+To interact with lancache-autofill, you can also use docker-compose, eg:
+
+```bash
+docker-compose run --rm lancache-autofill steam:queue-app 42640
+docker-compose run --rm lancache-autofill steam:show-queue
+```
+
 # Installation
 1. `git clone https://github.com/zeropingheroes/lancache-autofill.git && cd lancache-autofill`
 2. `./install.sh`

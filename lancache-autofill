@@ -32,7 +32,7 @@ $app->singleton(
 $capsule = new Capsule;
 $capsule->addConnection([
     'driver' => 'sqlite',
-    'database' => 'database.sqlite',
+    'database' => getenv('DATABASE_FILE', 'database.sqlite'),
 ]);
 $capsule->setAsGlobal();
 $capsule->bootEloquent();

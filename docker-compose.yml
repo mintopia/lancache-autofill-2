@@ -1,0 +1,20 @@
+version: '3'
+services:
+  downloader:
+    build: .
+    command: ['/usr/bin/php', '/app/lancache-autofill', 'steam:download-daemon']
+    volumes:
+      - ./storage/tmp:/tmp/lancache-autofill
+      - ./storage/database:/app/storage/database
+      - home:/usr/games/home
+  lancache-autofill:
+    build: .
+    entrypoint: ['/usr/bin/php', '/app/lancache-autofill']
+    volumes:
+      - ./storage/tmp:/tmp/lancache-autofill
+      - ./storage/database:/app/storage/database
+      - home:/usr/games/home
+    profiles:
+      - cli
+volumes:
+  home:

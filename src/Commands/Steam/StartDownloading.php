@@ -159,7 +159,7 @@ class StartDownloading extends Command
      *
      * @return int
      */
-    private function queuedItems()
+    protected function queuedItems()
     {
         return SteamQueueItem::where('status', 'queued')
             ->count();
