@@ -7,6 +7,8 @@ services:
       - ./storage/tmp:/tmp/lancache-autofill
       - ./storage/database:/app/storage/database
       - home:/usr/games/home
+    env_file:
+      - .env.docker-compose
   lancache-autofill:
     build: .
     entrypoint: ['/usr/bin/php', '/app/lancache-autofill']
@@ -16,5 +18,7 @@ services:
       - home:/usr/games/home
     profiles:
       - cli
+    env_file:
+      - .env.docker-compose
 volumes:
   home:

@@ -8,3 +8,4 @@ database.sqlite
 *.txt
 *.bucket
 /storage/
+/.env.docker-compose
