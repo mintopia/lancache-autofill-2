@@ -7,6 +7,7 @@ services:
       - ./storage/tmp:/tmp/lancache-autofill
       - ./storage/database:/app/storage/database
       - home:/usr/games/home
+      - .env.docker-compose:/app/.env
     env_file:
       - .env.docker-compose
   lancache-autofill:
@@ -16,6 +17,7 @@ services:
       - ./storage/tmp:/tmp/lancache-autofill
       - ./storage/database:/app/storage/database
       - home:/usr/games/home
+      - .env.docker-compose:/app/.env
     profiles:
       - cli
     env_file:
